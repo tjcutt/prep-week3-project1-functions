@@ -1,5 +1,6 @@
 /*PROBLEMS ON:
 QUESTION 4: NOT CALCULATIONG CORRECTLY
+QUESTIONS 10, 11, 12
 
 
 =======================================================
@@ -63,33 +64,37 @@ document.getElementById("button3").addEventListener("click", function() {
 
 //====================IS NOT CALCULATING CORRECTLY
 //=================
-function avg4 (n1,n2,n3,n4,n5,n6) {
+function avg4(n1, n2, n3, n4, n5, n6) {
 
-  return (n1 + n2 + n3 + n4 + n5 + n6)/6
+    return (n1 + n2 + n3 + n4 + n5 + n6) / 6
 };
 
-console.log(avg4(2,2,2,2,2,2)/6);
+console.log("average for function:", avg4(2, 2, 2, 2, 2, 2));
 
-
-document.getElementById("button4").addEventListener("click", function(){
-
-  document.getElementById("q4").innerHTML = "The average is: "
-    (avg4(document.getElementById("number1").value, document.getElementById("number2").value,
-    document.getElementById("number3").value, document.getElementById("number4").value,
-    document.getElementById("number5").value, document.getElementById("number6").value)
-    )
+document.getElementById("button4").addEventListener("click", function() {
+    var val1 = parseInt(document.getElementById('number1').value)
+    var val2 = parseInt(document.getElementById('number2').value)
+    var val3 = parseInt(document.getElementById('number3').value)
+    var val4 = parseInt(document.getElementById('number4').value)
+    var val5 = parseInt(document.getElementById('number5').value)
+    var val6 = parseInt(document.getElementById('number6').value)
+    console.log(avg4(val1, val2, val3, val4, val5, val6));
+    document.getElementById("q4").innerHTML = "The average is: " +
+        avg4(val1, val2, val3, val4, val5, val6)
 });
 
+var nums = [1, 2, 3]
 
-//==============COULD WE DO THIS WITH A FOR LOOP/ACCUMULATOR PATTERN
-// function avg4(array) {
-//   var sum = 0
-//     for (var i = 0; i < array.length; i++) {
-//       array[i]
-//     }
-//   var soln = sum/array.length
-//   return soln
-// }
+function getAverage(arr) {
+    var soln;
+    var sum = 0
+    for (var i = 0; i < arr.length; i++) {
+        sum += arr[i]
+    }
+    soln = (sum / arr.length)
+    return soln
+}
+console.log(getAverage(nums));
 
 
 // 5. You use Amazon Subscribe & Save to have six cans of cashews automatically sent to you each month.
@@ -98,12 +103,11 @@ document.getElementById("button4").addEventListener("click", function(){
 
 
 function total(number, price) {
-  return (number*price)
+    return (number * price)
 };
 
-document.getElementById("button5").addEventListener("click", function(){
-  document.getElementById("q5").innerHTML = ("Your monthly total is: $ "+ total(6,document.getElementById("price1").value)
-  )
+document.getElementById("button5").addEventListener("click", function() {
+    document.getElementById("q5").innerHTML = ("Your monthly total is: $ " + total(6, document.getElementById("price1").value))
 });
 
 
@@ -111,27 +115,26 @@ document.getElementById("button5").addEventListener("click", function(){
 
 // 6. Define functions called "area" and "perimeter". They should both accept two parameters and calculate the area and perimeter of a rectangle.
 
-//===================ISSUE WITH CALCULATING PERIMETER
+//===================ISSUE WITH CALCULATING PERIMETER    parse Int
 //
 function area(length, width) {
-  return (length*width)
+    return (length * width)
 };
-function perimeter(length, width){
-  return(2*(length+width));
+
+function perimeter(length, width) {
+    return (2 * (length + width));
 };
 
 // console.log(area(2,3));
 // console.log(perimeter(2,3));
 
-document.getElementById("button6a").addEventListener("click", function(){
-  document.getElementById("q6a").innerHTML = ("The area is:"+ area(document.getElementById("inputLength").value, document.getElementById("inputWidth").value)
-  )
+document.getElementById("button6a").addEventListener("click", function() {
+    document.getElementById("q6a").innerHTML = ("The area is:" + area(document.getElementById("inputLength").value, document.getElementById("inputWidth").value))
 });
 
 ///
-document.getElementById("button6b").addEventListener("click", function(){
-  document.getElementById("q6b").innerHTML = ("The perimeter is:"+ perimeter(document.getElementById("inputLength").value, document.getElementById("inputWidth").value)
-  )
+document.getElementById("button6b").addEventListener("click", function() {
+    document.getElementById("q6b").innerHTML = ("The perimeter is: " + perimeter(document.getElementById("inputLength").value, document.getElementById("inputWidth").value))
 });
 
 
@@ -139,14 +142,13 @@ document.getElementById("button6b").addEventListener("click", function(){
 //    The function will return a value which is one quarter of the number provided.
 
 function quarter(number) {
-  return(number/4)
+    return (number / 4)
 };
 
 // console.log(quarter(4));
 
-document.getElementById("button7").addEventListener("click", function(){
-  document.getElementById("q7").innerHTML = ("1/4 of the number is: "+ quarter(document.getElementById("quarter1").value)
-  )
+document.getElementById("button7").addEventListener("click", function() {
+    document.getElementById("q7").innerHTML = ("1/4 of the number is: " + quarter(document.getElementById("quarter1").value))
 });
 
 // 8. Write a function called "sleepings", it should accept one parameter, an integer called "hours".
@@ -154,28 +156,28 @@ document.getElementById("button7").addEventListener("click", function(){
 //    If the number of hours is less than 8, print a statement recommending the user get more shut eye.
 
 function sleepings(hours) {
-  if (hours>= 8) {
-    return ("Unsure as how you found the time to get 8 hours of sleep, but nice work!")
-  } else {
-    return ("Need better time management?  I feel ya.")
-  }
+    if (hours >= 8) {
+        return ("Unsure as how you found the time to get 8 hours of sleep, but nice work!")
+    } else {
+        return ("Need better time management?  I feel ya.")
+    }
 };
 
-document.getElementById("button8").addEventListener("click", function(){
-  document.getElementById("q8").innerHTML = sleepings(document.getElementById("hours").value)
+document.getElementById("button8").addEventListener("click", function() {
+    document.getElementById("q8").innerHTML = sleepings(document.getElementById("hours").value)
 });
 
 
 
 // 9. Develop a function that determines a person's age by asking them for their birth year.
 
-function age(birthYear){
-  return (2016-birthYear)
+function age(birthYear) {
+    return "You're " + (2016 - birthYear) + " years old."
 }
 
 // console.log(age(1986));
-document.getElementById("button9").addEventListener("click", function(){
-  document.getElementById("q9").innerHTML = age(document.getElementById("year").value)
+document.getElementById("button9").addEventListener("click", function() {
+    document.getElementById("q9").innerHTML = age(document.getElementById("year").value)
 });
 
 
@@ -183,49 +185,74 @@ document.getElementById("button9").addEventListener("click", function(){
 // 10. Write a function that accepts the following array and separates the people into two teams. Display each team within the HTML page.
 //    No names next to each other in the array should be on the same team.
 
-//================ISSUES RUNNING CODE
-//============"JS STACK TRACE"
+
 teammates = ["Harold", "Bob", "Sue", "Grady", "Notorious B.I.G.", "JavaCrypt", "Weird guy in the back", "Gary", "Carol", "Hipster Tim", "Janet"]
 
 var team1 = []
 var team2 = []
 
 function teams(array){
-  for (var i = 0; i < array.length; i+2) {
-    team1 += array[i]
+  for (var i = 0; i < array.length; i+=2) {
+    team1.push(array[i])
   }
-  for (var i = 1; i < array.length; i+2) {
-    team2 += array[i]
+  for (var i = 1; i < array.length; i+=2) {
+    team2.push(array[i])
   }
-  return "Team 1: " + team1;
-  return "Team 2: " + team2;
+  return "Team 1: " + team1 + "\n" + "Team 2: " + team2;
+//can you have multiple returns
 };
-console.log(teams(teammates))
+console.log(teams(teammates));
+
+//=============PRACTICE
+// var grades = [90,86,71,75,92]
+//
+// function failingGrades(arr) {
+//   for (var i = 0; i < arr.length; i++) {
+//     if(arr[i] < 70) {
+//       return false
+//     }
+//   }
+//   return true
+// }
+// console.log(failingGrades(grades));
+//
+
+//IS THERE A WAY TO RUN A 'FOR' LOOP  WITH A MODULO.  I TRIED AND IT WOULDN'T RECOGNIZE 'i' IN THE 'IF' STATEMENT
+
+// teammates = ["Harold", "Bob", "Sue", "Grady", "Notorious B.I.G.", "JavaCrypt", "Weird guy in the back", "Gary", "Carol", "Hipster Tim", "Janet"]
 
 
-// 11. Allow a user to enter a three digit number.
-//     Write a function that adds the numbers together.
-//     Hint #1: You need to turn a string into an integer.
-//     Hint #2: Strings can be treated as arrays too.
 
+
+
+// // 11. Allow a user to enter a three digit number.
+// //     Write a function that adds the numbers together.
+// //     Hint #1: You need to turn a string into an integer.
+// //     Hint #2: Strings can be treated as arrays too.
+//
+// ============WILL NOT RECOGNIZE SPLIT
 function digitSum(number) {
+  var strNum = number.toString()
+  console.log('strNum',strNum);
+  var splitNumber= strNum.split("");
+  console.log('splitNum',splitNumber);
   var soln = 0
-  for (var i = 0; i < parseDigit.length; i++) {
-    soln += parseDigit[i]
-      var parseDigit = parseInt(number)
+  for (var i = 0; i < splitNumber.length; i++) {
+    var parsedNumber = parseInt(splitNumber[i])
+    soln += parsedNumber
   }
   return soln
 };
 console.log(digitSum(345));
 
-
-//===================CHECKING CODE COMPONENTS
-var number = "134"
-// number.split("")
-var splitNumber = number.split("");
-// var parsedNumber = splitNumber.parseInt("")
-console.log(splitNumber);
-
+//
+// //===================CHECKING CODE COMPONENTS
+// var number = "134"
+// // number.split("")
+// var splitNumber = number.split("");
+// // var parsedNumber = splitNumber.parseInt("")
+// console.log(splitNumber);
+//
 
 
 // 12. You've finally gotten around to counting the change in your piggy bank.
@@ -234,8 +261,30 @@ console.log(splitNumber);
 //     Finally, it should return the total amount of change you have in the following format: "$32.77"
 //     HINT: Understanding the toFixed method will help you with the format.
 
+//=====================NOT CALCULATING WITH THE BUTTON
 
 
+function piggyBank(quarters, dimes, nickels, pennies) {
+    var quartersAmt = (parseInt(quarters) * .25);
+    var dimesAmt = (parseInt(dimes) * .1);
+    var nickelsAmt = (parseInt(nickels) * .05);
+    var penniesAmt = (parseInt(pennies) * .01);
+    var fullAmt = (quartersAmt + dimesAmt + nickelsAmt + penniesAmt)
+    return fullAmt.toFixed(2);
+}
+console.log(piggyBank(4,6,7,5));
+
+var quartersInt = parseInt(document.getElementById("in12a").value)
+var dimesInt = parseInt(document.getElementById("in12b").value)
+var nickelsInt = parseInt(document.getElementById("in12a").value)
+var penniesInt = parseInt(document.getElementById("in12a").value)
+var quarterInt = parseInt(document.getElementById("in12a").value)
+
+document.getElementById("btn12").addEventListener("click", function() {
+
+    document.getElementById("q12").innerHTML = "The total amount is: $" +
+        piggyBank(quartersInt, dimesInt, nickelsInt, penniesInt)
+});
 
 
 
