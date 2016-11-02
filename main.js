@@ -274,14 +274,14 @@ function piggyBank(quarters, dimes, nickels, pennies) {
 }
 console.log(piggyBank(4,6,7,5));
 
-var quartersInt = parseInt(document.getElementById("in12a").value)
-var dimesInt = parseInt(document.getElementById("in12b").value)
-var nickelsInt = parseInt(document.getElementById("in12a").value)
-var penniesInt = parseInt(document.getElementById("in12a").value)
-var quarterInt = parseInt(document.getElementById("in12a").value)
+
 
 document.getElementById("btn12").addEventListener("click", function() {
-
+  var quartersInt = parseInt(document.getElementById("in12a").value)
+  var dimesInt = parseInt(document.getElementById("in12b").value)
+  var nickelsInt = parseInt(document.getElementById("in12a").value)
+  var penniesInt = parseInt(document.getElementById("in12a").value)
+  var quarterInt = parseInt(document.getElementById("in12a").value)
     document.getElementById("q12").innerHTML = "The total amount is: $" +
         piggyBank(quartersInt, dimesInt, nickelsInt, penniesInt)
 });
