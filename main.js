@@ -82,14 +82,14 @@ document.getElementById("button4").addEventListener("click", function(){
 
 
 //==============COULD WE DO THIS WITH A FOR LOOP/ACCUMULATOR PATTERN
-function avg4(array) {
-  var sum = 0
-    for (var i = 0; i < array.length; i++) {
-      array[i]
-    }
-  var soln = sum/array.length
-  return soln
-}
+// function avg4(array) {
+//   var sum = 0
+//     for (var i = 0; i < array.length; i++) {
+//       array[i]
+//     }
+//   var soln = sum/array.length
+//   return soln
+// }
 
 
 // 5. You use Amazon Subscribe & Save to have six cans of cashews automatically sent to you each month.
@@ -182,11 +182,25 @@ document.getElementById("button9").addEventListener("click", function(){
 
 // 10. Write a function that accepts the following array and separates the people into two teams. Display each team within the HTML page.
 //    No names next to each other in the array should be on the same team.
+
+//================ISSUES RUNNING CODE
+//============"JS STACK TRACE"
 teammates = ["Harold", "Bob", "Sue", "Grady", "Notorious B.I.G.", "JavaCrypt", "Weird guy in the back", "Gary", "Carol", "Hipster Tim", "Janet"]
 
-// function (array) {
-//   var newarray
-// };
+var team1 = []
+var team2 = []
+
+function teams(array){
+  for (var i = 0; i < array.length; i+2) {
+    team1 += array[i]
+  }
+  for (var i = 1; i < array.length; i+2) {
+    team2 += array[i]
+  }
+  return "Team 1: " + team1;
+  return "Team 2: " + team2;
+};
+console.log(teams(teammates))
 
 
 // 11. Allow a user to enter a three digit number.
@@ -196,19 +210,21 @@ teammates = ["Harold", "Bob", "Sue", "Grady", "Notorious B.I.G.", "JavaCrypt", "
 
 function digitSum(number) {
   var soln = 0
-  var parseDigit = parseInt(number)
   for (var i = 0; i < parseDigit.length; i++) {
     soln += parseDigit[i]
+      var parseDigit = parseInt(number)
   }
   return soln
 };
 console.log(digitSum(345));
 
+
+//===================CHECKING CODE COMPONENTS
 var number = "134"
 // number.split("")
 var splitNumber = number.split("");
-var parsedNumber = splitNumber.parseInt("")
-console.log(parsedNumber);
+// var parsedNumber = splitNumber.parseInt("")
+console.log(splitNumber);
 
 
 
